@@ -1,6 +1,6 @@
 // El principal objetivo de este desafío es fortalecer tus habilidades en lógica de programación. Aquí deberás desarrollar la lógica para resolver el problema.
 
-let amigosIngresados = [];
+let amigos = [];
 
 /*Implementa una función para agregar amigos
 Desarrolla una función, que permita al usuario ingresar un nombre en el campo de texto y añadirlo a la lista de amigos creada anteriormente.
@@ -21,11 +21,11 @@ Limpiar el campo de entrada: Después de añadir el nombre, restablecer el campo
 function agregarAmigo() {
     let amigo = document.getElementById("amigo").value;
     if (amigo != "") {
-        amigosIngresados.push(amigo);
+        amigos.push(amigo);
         document.getElementById("amigo").value = "";
-        mostrarAmigos(amigosIngresados);
+        mostrarAmigos(amigos);
     } else {
-        alert("Por favor, inserte un nombre.");
+        alert("Por favor, inserte un nombre");
         return;
     }
     }
@@ -48,8 +48,8 @@ Agregar elementos a la lista: Para cada amigo, crear un nuevo elemento de lista.
 function mostrarAmigos() {
     let lista = document.getElementById("listaAmigos");
     lista.innerHTML = "";
-    for (let i = 0; i < amigosIngresados.length; i++) {
-        lista.innerHTML += `<li>${amigosIngresados[i]}</li>`;
+    for (let i = 0; i < amigos.length; i++) {
+        lista.innerHTML += `<li>${amigos[i]}</li>`;
     }
 }
 
@@ -70,7 +70,15 @@ Mostrar el resultado: Actualizar el contenido del elemento de resultado utilizan
 
 
 
-
+function sortearAmigo() {
+    if (amigos.length > 0) {
+        let amigoSorteado = amigos[Math.floor(Math.random() * amigos.length)];
+        document.getElementById("resultado").innerHTML = `El amigo secreto es: ${amigoSorteado}`;
+    }
+    else {
+        alert("No hay amigos ingresados.");
+    }
+}
 
 
 
